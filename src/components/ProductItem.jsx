@@ -1,6 +1,5 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from "@mui/icons-material"
 import styled from "styled-components"
-
 const Info = styled.div`
     opacity: 0;
     width: 100%;
@@ -53,7 +52,7 @@ const Icon = styled.div`
     transition: all 0.5s ease;
     &:hover{
         background-color: #e9f5f5;
-        transform: scale(1.1);
+        transform: scale(1.5);
     }
 `
 const ProductItem = ({item}) => {
