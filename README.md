@@ -18,3 +18,7 @@ You may also see any lint errors in the console.
 ## Details
 
 A React based eCommerce Web Application with  pure css components. 
+
+##Backed API
+
+https://github.com/lingaiahdanda/Fashify-Server
