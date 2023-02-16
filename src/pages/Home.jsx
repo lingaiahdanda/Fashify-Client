@@ -6,12 +6,12 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/NewsLetter'
 import Products from '../components/Products'
 import Slider from '../components/Slider'
+import {Link} from "react-router-dom"
 
 const Home = () => {
   return (
     <div>
         <Announcements></Announcements>
-        <Navbar></Navbar>
         <Slider></Slider>
         <Categories></Categories>
         <Products></Products>

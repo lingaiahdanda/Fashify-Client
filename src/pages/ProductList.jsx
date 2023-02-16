@@ -5,6 +5,7 @@ import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import NewsLetter from "../components/NewsLetter";
+import { useNavigate , useParams} from "react-router-dom";
 const Container = styled.div``;
 
 const Title = styled.h1`

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Badge from '@mui/material/Badge';
 import {Search, ShoppingCartOutlined} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     height: 60px;
@@ -72,8 +73,12 @@ const Navbar = () => {
           </Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
+          <MenuItem>
+            <Link to="/register">REGISTER</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to="/login">LOGIN</Link>
+          </MenuItem>
           <MenuItem>
           <Badge badgeContent={4} color='primary'>
             <ShoppingCartOutlined></ShoppingCartOutlined>

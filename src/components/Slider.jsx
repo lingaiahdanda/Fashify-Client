@@ -66,8 +66,14 @@ const Description = styled.p`
 const Button = styled.button`
     padding: 10px;
     font-size: 20px;
-    background-color: transparent;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    :hover{
+        box-shadow: 0px 0px 2px 2px teal
+    }
 `
 const Slider = () => {
     const [slideIndex,setSlideIndex] =  useState(0);
