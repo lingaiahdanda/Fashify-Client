@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Badge from '@mui/material/Badge';
 import {Search, ShoppingCartOutlined} from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {useSelector,useDispatch} from "react-redux"
 
 const Container = styled.div`
     height: 60px;
@@ -24,8 +25,8 @@ const Center = styled.div`
   flex: 1;
   text-align: center;
 `
-const Logo = styled.h1`
-  font-weight: bold;
+const Logo = styled.div`
+  cursor: pointer;
 `
 const Right = styled.div`
   flex: 1;
@@ -57,6 +58,9 @@ const Input = styled.input`
 
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const quantity = useSelector(state=> state.cart.quantity);
+  
   return (
     <Container>
       <Wrapper>
@@ -68,8 +72,10 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>
-            Fashify
+          <Logo onClick = {()=>{
+            navigate("/")
+          }}>
+            <h1 style={{fontWeight: 'bold'}}>Fashify</h1>
           </Logo>
         </Center>
         <Right>
@@ -79,11 +85,13 @@ const Navbar = () => {
           <MenuItem>
             <Link to="/login">LOGIN</Link>
           </MenuItem>
-          <MenuItem>
-          <Badge badgeContent={4} color='primary'>
-            <ShoppingCartOutlined></ShoppingCartOutlined>
-          </Badge>
-          </MenuItem>
+          <Link to="/cart">
+            <MenuItem>
+              <Badge badgeContent={quantity} color='primary'>
+                <ShoppingCartOutlined></ShoppingCartOutlined>
+              </Badge>
+            </MenuItem>
+          </Link>
         </Right>
       </Wrapper> 
     </Container>

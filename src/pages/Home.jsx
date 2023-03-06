@@ -11,6 +11,7 @@ import {Link} from "react-router-dom"
 const Home = () => {
   return (
     <div>
+        <Navbar></Navbar>
         <Announcements></Announcements>
         <Slider></Slider>
         <Categories></Categories>
