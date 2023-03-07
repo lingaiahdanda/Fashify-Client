@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router";
 
-const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 
@@ -161,12 +160,13 @@ const Button = styled.button`
 
 const Cart = () => {
   const navigate = useNavigate();
+  const KEY = process.env.REACT_APP_STRIPE;
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const onToken = (token) => {
     setStripeToken(token);
   };
-
+  console.log(stripeToken);
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -180,7 +180,7 @@ const Cart = () => {
       } catch {}
     };
     stripeToken && makeRequest();
-  }, [stripeToken, cart.total, navigate]);
+  }, [stripeToken, cart.totalPrice, navigate, cart]);
   return (
     <Container>
       <Navbar />
@@ -247,11 +247,11 @@ const Cart = () => {
               <SummaryItemPrice>$ {cart.totalPrice}</SummaryItemPrice>
             </SummaryItem>
             <StripeCheckout
-              name="Lama Shop"
-              image="https://avatars.githubusercontent.com/u/1486366?v=4"
+              name="Fashify"
+              image="https://avatars.githubusercontent.com/lingaiahdanda"
               billingAddress
               shippingAddress
-              description={`Your total is $${cart.total}`}
+              description={`Your total is $${cart.totalPrice}`}
               amount={cart.total * 100}
               token={onToken}
               stripeKey={KEY}
